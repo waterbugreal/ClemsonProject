@@ -7,12 +7,12 @@
 animations = [ {
 "frames": [ ExtResource( 1 ) ],
 "loop": true,
-"name": "up",
+"name": "walk",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 1 ) ],
 "loop": true,
-"name": "walk",
+"name": "up",
 "speed": 5.0
 } ]
 
@@ -21,6 +21,7 @@ radius = 8.0
 height = 10.0
 
 [node name="Player" type="KinematicBody2D"]
+collision_mask = 30
 script = ExtResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
@@ -33,3 +34,8 @@ shape = SubResource( 1 )
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
 zoom = Vector2( 0.3, 0.3 )
+
+[node name="PlatformDetector" type="RayCast2D" parent="."]
+enabled = true
+cast_to = Vector2( 0, 20 )
+collision_mask = 8
