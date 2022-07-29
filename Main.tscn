@@ -1,13 +1,23 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://src/Level/Level.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/Actor/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/background/559400oUKdheKP.jpg" type="Texture" id=3]
 
 [node name="Main" type="Node"]
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-
 [node name="Level" parent="." instance=ExtResource( 1 )]
+position = Vector2( 0, 148 )
 
 [node name="Player" parent="Level" instance=ExtResource( 2 )]
-position = Vector2( 75, -64 )
+position = Vector2( 147, -6 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2( 495, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( 255.5, 79 )
+scale = Vector2( 0.532292, 0.585185 )
+texture = ExtResource( 3 )
